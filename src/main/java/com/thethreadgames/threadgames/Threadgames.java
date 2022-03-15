@@ -1,9 +1,8 @@
 package com.thethreadgames.threadgames;
 
-import com.thethreadgames.threadgames.commands.ClearCommand;
-import com.thethreadgames.threadgames.commands.HealCommand;
 import com.thethreadgames.threadgames.commands.StartPluginCommand;
 import com.thethreadgames.threadgames.events.EatGoldenAppleEvent;
+import com.thethreadgames.threadgames.events.OnDeathEvent;
 import com.thethreadgames.threadgames.events.PlayerHitEvent;
 import com.thethreadgames.threadgames.events.ZombieTargetInfectedEvent;
 import org.bukkit.Bukkit;
@@ -21,8 +20,9 @@ public final class Threadgames extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerHitEvent(this), this);
         getServer().getPluginManager().registerEvents(new EatGoldenAppleEvent(this), this);
         getServer().getPluginManager().registerEvents(new ZombieTargetInfectedEvent(this), this);
-        getServer().getPluginCommand("invclear").setExecutor(new ClearCommand(this));
-        getServer().getPluginCommand("heal").setExecutor(new HealCommand(this));
+        getServer().getPluginManager().registerEvents(new OnDeathEvent(this), this);
+
+
         getServer().getPluginCommand("AOMEI").setExecutor(new StartPluginCommand(this));
 
     }

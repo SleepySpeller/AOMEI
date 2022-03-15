@@ -1,0 +1,56 @@
+package com.thethreadgames.threadgames.events;
+
+import com.thethreadgames.threadgames.ConfigManager;
+import com.thethreadgames.threadgames.Threadgames;
+import com.thethreadgames.threadgames.events.giveEffects.effectOne;
+import com.thethreadgames.threadgames.events.giveEffects.effectThree;
+import com.thethreadgames.threadgames.events.giveEffects.effectTwo;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.potion.PotionEffectType;
+
+import static org.bukkit.Bukkit.getServer;
+
+public class OnDeathEvent implements Listener {
+    private final Threadgames plugin;
+    public OnDeathEvent(Threadgames plugin) { this.plugin = plugin; }
+
+    @EventHandler
+    public void onDeath(PlayerDeathEvent event) {
+        Player player = event.getEntity().getPlayer();
+
+        getServer().getScheduler().cancelTasks(plugin);
+
+        player.removePotionEffect(PotionEffectType.SLOW);
+        player.removePotionEffect(PotionEffectType.BLINDNESS);
+        player.removePotionEffect(PotionEffectType.HUNGER);
+        player.removePotionEffect(PotionEffectType.CONFUSION);
+
+        player.sendMessage(ChatColor.RED + "[ThreadGames] You died!");
+        ConfigManager.playerscfg.set(player.getName(), null);
+
+
+        effectOne effectOne = new effectOne(plugin, player);
+        effectTwo effect2 = new effectTwo(plugin, player);
+        effectThree effect3 = new effectThree(plugin, player);
+        try {
+            int taskID1 = effectOne.getTaskId();
+            int taskID2 = effect2.getTaskId();
+            int taskID3 = effect3.getTaskId();
+            effectOne.cancel();
+            effect2.cancel();
+            effect3.cancel();
+
+            plugin.getServer().getScheduler().cancelTask(taskID1);
+            plugin.getServer().getScheduler().cancelTask(taskID2);
+            plugin.getServer().getScheduler().cancelTask(taskID3);
+
+        } catch (IllegalStateException error) {
+            Bukkit.getServer().getConsoleSender().sendMessage("[ThreadGames] Unable to cancel the scheduled taskk");
+        }
+    }
+}
