@@ -3,10 +3,8 @@ package com.thethreadgames.threadgames;
 import java.io.File;
 import java.io.IOException;
 
-import com.thethreadgames.threadgames.scripts.ItemStackConverts;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -65,9 +63,6 @@ public class ConfigManager {
 
         //ItemStack stack = new ItemStack(headItem.getType());
 
-
-
-
         if(headItem == null){
             playerscfg.set(playerName + ".HeadItem", "none");
         }else{
@@ -77,11 +72,5 @@ public class ConfigManager {
 
         savePlayers();
         reloadPlayers();
-//        try {
-//            playerscfg.save(playersfile);
-//            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[ThreadGames] Successfully saved the player");
-//        } catch (IOException e) {
-//            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "[ThreadGames]  Unable to save the infected player!");
-//        }
     }
 }

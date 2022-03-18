@@ -20,6 +20,10 @@ public class StartPluginCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = ((Player) sender).getPlayer();
 
+        if(!sender.hasPermission("aomei.toggle") || !sender.isOp()){
+            sender.sendMessage(ChatColor.RED + "You don't have the permission to execute this command");
+            return true;
+        }
         if(ConfigManager.playerscfg.getBoolean("enabled") == false){
             ConfigManager.playerscfg.set("enabled", true);
             ConfigManager.savePlayers();

@@ -1,14 +1,13 @@
 name: ThreadGames
-version: '${project.version}'
+version: 0.8.0
 main: com.thethreadgames.threadgames.Threadgames
 api-version: 1.18
 commands:
-  invclear:
-    description: Clears the users inventory!
-    usage: /<command>
-  heal:
-    description: Heals the user!
-    usage: /<command>
   AOMEI:
     description: Toggles the plugin!
     usage: /<command>
+
+permissions:
+  aomei.toggle:
+    description: Permission for toggling the plugin, AKA Command /aomei
+    default: false

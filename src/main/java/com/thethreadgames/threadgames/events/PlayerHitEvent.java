@@ -5,7 +5,6 @@ import com.thethreadgames.threadgames.Threadgames;
 import com.thethreadgames.threadgames.events.giveEffects.effectOne;
 import com.thethreadgames.threadgames.events.giveEffects.effectThree;
 import com.thethreadgames.threadgames.events.giveEffects.effectTwo;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -15,14 +14,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Random;
 
 import static org.bukkit.Bukkit.getPlayer;
-import static org.bukkit.Bukkit.getServer;
 
 
 public class PlayerHitEvent implements Listener {
@@ -34,70 +29,94 @@ public class PlayerHitEvent implements Listener {
 
 
     public void startDelays(Player player){
-        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "The player has been infected!");
-        player.sendMessage(ChatColor.RED + "You have been infected!");
+        player.sendMessage(ChatColor.RED + "You have been infected! \n To cure yourself eat an golden apple!");
+        player.sendMessage(ChatColor.YELLOW + "Overtime, you will get weird effects, if you don't cure yourself you will die!");
 
         ConfigManager.saveInfectedPlayer(player);
+        ConfigManager.savePlayers();
+        ConfigManager.reloadPlayers();
 
         player.getInventory().setHelmet(new ItemStack(Material.CARVED_PUMPKIN, 1));
 
         effectOne effect = new effectOne(plugin, player);
-        effect.runTaskLater(plugin, 100L);
+        effect.runTaskLater(plugin, 1200L);
 
         effectTwo effect2 = new effectTwo(plugin, player);
-        effect2.runTaskLater(plugin, 200L);
+        effect2.runTaskLater(plugin, 2400L);
 
         effectThree effect3 = new effectThree(plugin, player);
-        effect3.runTaskLater(plugin, 300L);
+        effect3.runTaskLater(plugin, 3600L);
 
     }
 
     @EventHandler
-    public void onPlayerJoin(EntityDamageByEntityEvent event){
+    public void onPlayerHit(EntityDamageByEntityEvent event){
 
         Entity isHitting = event.getDamager();
         Entity gotHit = event.getEntity();
 
-        Bukkit.getServer().getConsoleSender().sendMessage(gotHit + " was hit by " + isHitting);
 
         EntityType gotHitType = gotHit.getType();
         EntityType isHittingType = isHitting.getType();
+
         if(ConfigManager.playerscfg.getBoolean("enabled") == true){
-            if(gotHitType == EntityType.PLAYER && isHittingType == EntityType.ZOMBIE){
-                String namePlayer = gotHit.getName();
-                Player player = getPlayer(namePlayer);
+            if(gotHitType == EntityType.PLAYER){
+                if(isHittingType == EntityType.ZOMBIE){
+                    String namePlayer = gotHit.getName();
+                    Player player = getPlayer(namePlayer);
 
-                if(ConfigManager.playerscfg.contains(player.getName()) == false){
+                    if(ConfigManager.playerscfg.contains(player.getName()) == false){
+                        Random rand = new Random(); //instance of random class
+                        int upperbound = 100;
+                        int int_random = rand.nextInt(upperbound);
 
-                    Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.YELLOW + "Player's name is " + player.getName() + "and is not on the list");
+                        double health = player.getHealth();
 
-                    Random rand = new Random(); //instance of random class
-                    int upperbound = 100;
-                    int int_random = rand.nextInt(upperbound);
+                        if (health < 10){
+                            startDelays(player);
 
-                    double health = player.getHealth();
-
-                    if (health < 10){
-                        Bukkit.getServer().getConsoleSender().sendMessage("Player infected beacuse his health is below 5 hearts");
-                        startDelays(player);
-
-
-                    }else{
-
-                        if (int_random < 5){
-                            Bukkit.getServer().getConsoleSender().sendMessage("Player infected, random number is " + int_random+ " and player's healt is "+health);
 
                         }else{
-                            Bukkit.getServer().getConsoleSender().sendMessage("Player not infected, random number is " + int_random+ " and player's healt is "+health);
 
-
-                            player.sendMessage(ChatColor.RED + "You have been hit by a zombie!");
+                            if (int_random < 5){
+                                startDelays(player);
+                            }else{
+                                player.sendMessage(ChatColor.RED + "You have been hit by a zombie!");
+                            }
                         }
                     }
-                }else{
-                    Bukkit.getServer().getConsoleSender().sendMessage("[ThreadGames] Player not on the list");
+                }else if(isHittingType == EntityType.PLAYER){
+                    String namePlayerHit = gotHit.getName();
+                    Player playerHit = getPlayer(namePlayerHit);
+
+                    String namePlayerHitting = isHitting.getName();
+                    Player playerHitting = getPlayer(namePlayerHitting);
+
+                    if(ConfigManager.playerscfg.contains(playerHitting.getName())) {
+                        if (!ConfigManager.playerscfg.contains(playerHit.getName())) {
+                            Random rand = new Random(); //instance of random class
+                            int upperbound = 100;
+                            int int_random = rand.nextInt(upperbound);
+
+                            double health = playerHit.getHealth();
+
+                            if (health < 10) {
+                                startDelays(playerHit);
+
+
+                            } else {
+
+                                if (int_random < 5) {
+                                    startDelays(playerHit);
+                                } else {
+                                    playerHit.sendMessage(ChatColor.RED + "You have been hit by a zombie!");
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
+
