@@ -7,7 +7,7 @@ It took me some time to make it, but finally I got a prototype for people to tes
 <br>
 If you see any bugs please report them to me on Discord (SleepySpeller#0289) or E-Mail (support@slpy.ml)
 <br>
-#How to use the plugin?
+# How to use the plugin?
 You toggle the plugin using the command /aomei
 <br>
 By default the plugin is disabled.
