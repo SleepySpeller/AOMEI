@@ -1,12 +1,12 @@
-package com.thethreadgames.threadgames;
+package com.thethreatgames.threatgames;
 
-import com.thethreadgames.threadgames.commands.StartPluginCommand;
-import com.thethreadgames.threadgames.events.*;
+import com.thethreatgames.threatgames.commands.StartPluginCommand;
+import com.thethreatgames.threatgames.events.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Threadgames extends JavaPlugin {
+public final class Threatgames extends JavaPlugin {
     private ConfigManager cfgn;
     public String infectedPlayers[];
 //YES COMMENTS GO BRRR

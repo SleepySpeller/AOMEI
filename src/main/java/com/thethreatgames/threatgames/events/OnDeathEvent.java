@@ -1,10 +1,10 @@
-package com.thethreadgames.threadgames.events;
+package com.thethreatgames.threatgames.events;
 
-import com.thethreadgames.threadgames.ConfigManager;
-import com.thethreadgames.threadgames.Threadgames;
-import com.thethreadgames.threadgames.events.giveEffects.effectOne;
-import com.thethreadgames.threadgames.events.giveEffects.effectThree;
-import com.thethreadgames.threadgames.events.giveEffects.effectTwo;
+import com.thethreatgames.threatgames.ConfigManager;
+import com.thethreatgames.threatgames.Threatgames;
+import com.thethreatgames.threatgames.events.giveEffects.effectOne;
+import com.thethreatgames.threatgames.events.giveEffects.effectThree;
+import com.thethreatgames.threatgames.events.giveEffects.effectTwo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -16,8 +16,8 @@ import org.bukkit.potion.PotionEffectType;
 import static org.bukkit.Bukkit.getServer;
 
 public class OnDeathEvent implements Listener {
-    private final Threadgames plugin;
-    public OnDeathEvent(Threadgames plugin) { this.plugin = plugin; }
+    private final Threatgames plugin;
+    public OnDeathEvent(Threatgames plugin) { this.plugin = plugin; }
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {

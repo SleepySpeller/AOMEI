@@ -1,4 +1,4 @@
-package com.thethreadgames.threadgames;
+package com.thethreatgames.threatgames;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class ConfigManager {
-    private Threadgames plugin = Threadgames.getPlugin(Threadgames.class);
+    private Threatgames plugin = Threatgames.getPlugin(Threatgames.class);
 
     public static FileConfiguration playerscfg;
     public static File playersfile;
@@ -65,6 +65,7 @@ public class ConfigManager {
 
         if(headItem == null){
             playerscfg.set(playerName + ".HeadItem", "none");
+            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "[AOMEI] The player isn't wearing an hat");
         }else{
             playerscfg.set(playerName + ".HeadItem", headItem);
         }

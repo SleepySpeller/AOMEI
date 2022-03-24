@@ -1,4 +1,4 @@
-package com.thethreadgames.threadgames.scripts;
+package com.thethreatgames.threatgames.scripts;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

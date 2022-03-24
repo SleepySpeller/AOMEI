@@ -1,4 +1,4 @@
-package com.thethreadgames.threadgames.events.giveEffects;
+package com.thethreatgames.threatgames.events.giveEffects;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -23,6 +23,7 @@ public class effectOne extends BukkitRunnable {
         player.sendMessage(ChatColor.RED + "You have been infected! \n To cure yourself eat a Golden Apple!");
         player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 3600, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3600, 1));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 3600, 2));
 
     }
 

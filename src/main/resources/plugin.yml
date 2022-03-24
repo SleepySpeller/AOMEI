@@ -1,6 +1,6 @@
 name: ThreadGames
 version: 0.8.0
-main: com.thethreadgames.threadgames.Threadgames
+main: com.thethreatgames.threatgames.Threatgames
 api-version: 1.18
 commands:
   AOMEI:

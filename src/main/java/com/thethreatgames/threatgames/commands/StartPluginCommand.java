@@ -1,8 +1,7 @@
-package com.thethreadgames.threadgames.commands;
+package com.thethreatgames.threatgames.commands;
 
-import com.thethreadgames.threadgames.ConfigManager;
-import com.thethreadgames.threadgames.Threadgames;
-import jdk.javadoc.internal.tool.Start;
+import com.thethreatgames.threatgames.ConfigManager;
+import com.thethreatgames.threatgames.Threatgames;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,9 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class StartPluginCommand implements CommandExecutor {
-    private final Threadgames main;
+    private final Threatgames main;
 
-    public StartPluginCommand(Threadgames main){
+    public StartPluginCommand(Threatgames main){
         this.main = main;
     }
 

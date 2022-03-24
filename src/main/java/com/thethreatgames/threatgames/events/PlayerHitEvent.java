@@ -1,10 +1,10 @@
-package com.thethreadgames.threadgames.events;
+package com.thethreatgames.threatgames.events;
 
-import com.thethreadgames.threadgames.ConfigManager;
-import com.thethreadgames.threadgames.Threadgames;
-import com.thethreadgames.threadgames.events.giveEffects.effectOne;
-import com.thethreadgames.threadgames.events.giveEffects.effectThree;
-import com.thethreadgames.threadgames.events.giveEffects.effectTwo;
+import com.thethreatgames.threatgames.ConfigManager;
+import com.thethreatgames.threatgames.Threatgames;
+import com.thethreatgames.threatgames.events.giveEffects.effectOne;
+import com.thethreatgames.threatgames.events.giveEffects.effectThree;
+import com.thethreatgames.threatgames.events.giveEffects.effectTwo;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -22,9 +22,9 @@ import static org.bukkit.Bukkit.getPlayer;
 
 public class PlayerHitEvent implements Listener {
 
-    private final Threadgames plugin;
-    public PlayerHitEvent(Threadgames plugin) { this.plugin = plugin; }
-    static Threadgames mainClass;
+    private final Threatgames plugin;
+    public PlayerHitEvent(Threatgames plugin) { this.plugin = plugin; }
+    static Threatgames mainClass;
 
 
 
@@ -33,8 +33,6 @@ public class PlayerHitEvent implements Listener {
         player.sendMessage(ChatColor.YELLOW + "Overtime, you will get weird effects, if you don't cure yourself you will die!");
 
         ConfigManager.saveInfectedPlayer(player);
-        ConfigManager.savePlayers();
-        ConfigManager.reloadPlayers();
 
         player.getInventory().setHelmet(new ItemStack(Material.CARVED_PUMPKIN, 1));
 

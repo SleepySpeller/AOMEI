@@ -1,28 +1,29 @@
-package com.thethreadgames.threadgames.events;
+package com.thethreatgames.threatgames.events;
 
-import com.thethreadgames.threadgames.ConfigManager;
-import com.thethreadgames.threadgames.Threadgames;
+import com.thethreatgames.threatgames.ConfigManager;
+import com.thethreatgames.threatgames.Threatgames;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 
 public class RemoveHelmetEvent implements Listener {
-    private final Threadgames plugin;
-    public RemoveHelmetEvent(Threadgames plugin) { this.plugin = plugin; }
+    private final Threatgames plugin;
+    public RemoveHelmetEvent(Threatgames plugin) { this.plugin = plugin; }
 
 
     @EventHandler
     public void onClick(InventoryClickEvent event){
-        Player player = (Player) event.getWhoClicked();
-
-        Inventory clickedItem = event.getClickedInventory();
-
         if(ConfigManager.playerscfg.getBoolean("enabled") == true){
+            Player player = (Player) event.getWhoClicked();
             if(ConfigManager.playerscfg.contains(player.getName())){
-                if(event.getSlotType() == InventoryType.SlotType.ARMOR){
+                Inventory clickedItem = event.getClickedInventory();
+                int clickedSlot = event.getSlot();
+
+                //player.sendMessage("You clicked on " + clickedSlot);
+
+                if(clickedSlot == 39){
                     event.setCancelled(true);
                 }
             }
