@@ -1,13 +1,14 @@
-package com.thethreatgames.threatgames.events.giveEffects;
+package com.thethreatgames.threatgames.events.infectionEffects;
 
 import org.bukkit.ChatColor;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class effectOne extends BukkitRunnable {
+public class effectOne extends BukkitRunnable { //so?
 
     private JavaPlugin plugin;
 
@@ -21,9 +22,9 @@ public class effectOne extends BukkitRunnable {
     @Override
     public void run() {
         player.sendMessage(ChatColor.RED + "You have been infected! \n To cure yourself eat a Golden Apple!");
-        player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 3600, 1));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3600, 1));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 3600, 2));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 8400, 1));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 8400, 1));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 8400, 2));
 
     }
 

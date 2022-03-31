@@ -16,7 +16,7 @@ public class ZombieTargetInfectedEvent implements Listener {
     @EventHandler
     public void ZombieTargetsInfectedEvent(EntityTargetEvent event){
         Entity target = event.getTarget();
-        Entity attacker = event.getEntity();
+        Entity attacker = event.getEntity(); //jbg
 
         if(attacker instanceof Zombie){
             if (target instanceof Player){
