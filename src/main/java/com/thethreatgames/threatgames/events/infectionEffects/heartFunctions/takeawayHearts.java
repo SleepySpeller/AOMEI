@@ -28,13 +28,16 @@ public class takeawayHearts extends BukkitRunnable {
                 double hearts = playerHearts.getValue();
 
                 //Set it to be 1 heart less (2hp less)
-                if(hearts <= 2){
+                if(hearts > 2){
                     player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(hearts-2);
 
                     rescheduleTakeawayHearts.reschedule(plugin, player);
                 }
-
             }
         }
+    }
+
+    public BukkitRunnable getTask(){
+        return this;
     }
 }

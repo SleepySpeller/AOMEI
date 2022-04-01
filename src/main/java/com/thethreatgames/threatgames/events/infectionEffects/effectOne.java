@@ -21,7 +21,7 @@ public class effectOne extends BukkitRunnable { //so?
 
     @Override
     public void run() {
-        player.sendMessage(ChatColor.RED + "You have been infected! \n To cure yourself eat a Golden Apple!");
+        player.sendMessage(ChatColor.RED + "You are at stage one of being infected! \n Over time you gain diffrent effects! \n You also have to hit other players, otherwise you will lose hearts, but won't die");
         player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 8400, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 8400, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 8400, 2));
@@ -31,6 +31,4 @@ public class effectOne extends BukkitRunnable { //so?
     public BukkitRunnable getTask(){
         return this;
     }
-
-
 }

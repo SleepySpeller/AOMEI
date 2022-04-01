@@ -25,7 +25,6 @@ public class playerFullyInfected extends BukkitRunnable {
         player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 100, 250));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 1000));
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 90, 2));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, Integer.MAX_VALUE, 2));
         player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, Integer.MAX_VALUE, 2));
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 2));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 2));

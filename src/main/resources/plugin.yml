@@ -1,5 +1,5 @@
-name: ThreadGames
-version: 0.8.0
+name: ThreatGames
+version: 1.0.0
 main: com.thethreatgames.threatgames.Threatgames
 api-version: 1.18
 commands:

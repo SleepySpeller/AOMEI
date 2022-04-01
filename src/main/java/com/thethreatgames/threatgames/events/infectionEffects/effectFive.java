@@ -1,5 +1,6 @@
 package com.thethreatgames.threatgames.events.infectionEffects;
 
+import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,7 @@ public class effectFive extends BukkitRunnable {
 
     @Override
     public void run() {
+        player.sendMessage(ChatColor.RED + "Last warning, phase five, there are two more, good luck!");
         player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 2000, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 80, 2));
 

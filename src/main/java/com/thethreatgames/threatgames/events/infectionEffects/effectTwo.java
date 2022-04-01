@@ -1,5 +1,6 @@
 package com.thethreatgames.threatgames.events.infectionEffects;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
@@ -19,7 +20,8 @@ public class effectTwo extends BukkitRunnable {
 
     @Override
     public void run() {
-        //player.sendMessage(ChatColor.RED + "You have been infected! \n To cure yourself eat a Golden Apple!");
+        player.sendMessage(ChatColor.RED + "Phase two is now kicking in!");
+        player.sendMessage(ChatColor.RED + "Also don't forget about the effects!");
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 120, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 140, 1000));
 

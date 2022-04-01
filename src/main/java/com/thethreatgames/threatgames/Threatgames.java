@@ -23,7 +23,6 @@ public final class Threatgames extends JavaPlugin {
 
 
         getServer().getPluginCommand("AOMEI").setExecutor(new StartPluginCommand(this));
-
     }
 
     @Override
