@@ -28,11 +28,11 @@ public class ConfigManager {
             try{
                 playersfile.createNewFile();
             }catch (IOException e){
-                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "[ThreadGames] Could not create the players.yml file");
+                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "[AOMEI] Could not create the players.yml file");
             }
         }
         playerscfg = YamlConfiguration.loadConfiguration(playersfile);
-        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[ThreadGames] players.yml file has been created and loaded successfully");
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[AOMEI] players.yml file has been created and loaded successfully");
 
     }
 
@@ -43,15 +43,13 @@ public class ConfigManager {
     public static void savePlayers(){
         try{
             playerscfg.save(playersfile);
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "[ThreadGames] players.yml file has been saved");
         }catch(IOException e){
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "[ThreadGames] Could not create the players.yml file");
+            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "[AOMEI] Could not create the players.yml file");
         }
     }
 
     public static void reloadPlayers(){
         playerscfg = YamlConfiguration.loadConfiguration(playersfile);
-        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[ThreadGames] players.yml file has been reloaded!");
     }
 
 

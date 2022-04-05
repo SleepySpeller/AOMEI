@@ -36,7 +36,7 @@ public class OnDeathEvent implements Listener {
                 player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20);
 
                 //informs the player about the death (i mean its obvious but still lol)
-                player.sendMessage(ChatColor.RED + "[ThreatGames] You died!");
+                player.sendMessage(ChatColor.RED + "[AOMEI] You died!");
 
                 //removes the player from the infected list
                 ConfigManager.playerscfg.set(player.getName(), null);
