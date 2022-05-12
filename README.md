@@ -14,8 +14,6 @@ By default the plugin is disabled.
 <br>
 When the plugin is enabled zombies have a 5% chance of infecting you, and will infect you if you have less that 5 hearts!
 <br>
-To cure yourself just eat an Golden Apple!
-<br>
 While you are infected you will get diffrent effects as time goes on
 
 # Software used:
