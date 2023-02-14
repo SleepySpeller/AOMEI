@@ -18,5 +18,5 @@ While you are infected you will get diffrent effects as time goes on
 
 # Software used:
  - Intellij Community
- - Java 17 (duh its minecraft JAVA)
+ - Java 17
  - Bukkit API
