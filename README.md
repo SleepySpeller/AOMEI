@@ -4,6 +4,10 @@ Code for the Plugin used in TheThreadGames, coded by [SleepySpeller](https://git
 This plugin is used for the zombie infection in the battlegrounds on TheThreadGames
 <br>
 
+# Discontinued
+This plugin is no longer maintained by its original developer, thus its not recommended to run this plugin on newer versions
+<br>
+
 # How to use the plugin?
 You toggle the plugin using the command /aomei
 <br>
